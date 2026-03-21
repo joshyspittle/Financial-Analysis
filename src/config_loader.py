@@ -1,8 +1,63 @@
-import csv
 import os
 import pandas as pd
 
 def load_all_configs(filepath):
+    """
+    Load asset configuration data from multiple CSV watchlist files.
+
+    Each CSV file is read into a pandas DataFrame, indexed by the
+    'Identifier' column, and converted into a nested dictionary for
+    efficient lookup.
+
+    Parameters
+    ----------
+    filepath : str
+        Path to the directory containing the watchlist CSV files.
+
+    Returns
+    -------
+    config : dict[str, dict[str, dict[str, str]]]
+        Nested dictionary structured as:
+        {
+            <category>: {
+                <Identifier>: {
+                    'Ticker': str,
+                    'Full_Name': str,
+                    'Category': str,
+                    'Class': str,
+                    'Subclass': str,
+                    'Source': str
+                },
+                ...
+            },
+            ...
+        }
+
+        Example:
+        {
+            'crypto': {
+                'BTC': {
+                    'Ticker': 'BTC-USD',
+                    'Full_Name': 'Bitcoin',
+                    'Category': 'Crypto',
+                    'Class': 'L1',
+                    'Subclass': 'Currency',
+                    'Source': 'yfinance'
+                },
+                'ETH': {
+                    'Ticker': 'ETH-USD',
+                    'Full_Name': 'Ethereum',
+                    ...
+                }
+            }
+        }
+
+    headers : list[str]
+        List of column names from the final processed CSV file.
+        Assumes all watchlist files share the same schema.
+    """
+
+
     data_files = [
         'commodities.csv',
         'crypto.csv',

@@ -10,6 +10,41 @@ FRED_API = os.getenv('FRED_API_KEY')
 fred = Fred(api_key=FRED_API)
 
 def fetch_data(Ticker, Source, Identifier, start_date=None):
+    """
+    Fetch time series data from supported data sources.
+
+    This function retrieves historical data for a given ticker using the
+    specified data source. The returned data is standardised as a pandas
+    Series indexed by date.
+
+    Supported sources:
+    - 'FRED'     : Uses the FRED API via fredapi
+    - 'yfinance' : Uses Yahoo Finance via yfinance (returns 'Close' prices)
+
+    Parameters
+    ----------
+    Ticker : str
+        Ticker or series ID used by the data source.
+    Source : str
+        Data source identifier ('FRED' or 'yfinance').
+    Identifier : str
+        Name assigned to the returned series (used as the Series.name).
+    start_date : str, optional
+        Start date for the time series (format: 'YYYY-MM-DD').
+        If None, the full available history is fetched.
+
+    Returns
+    -------
+    series : pandas.Series or None
+        Time series of the requested data indexed by date.
+        Returns None if the data could not be fetched or is empty.
+
+    Notes
+    -----
+    - For yfinance data, only the 'Close' price is returned.
+    - MultiIndex columns from yfinance outputs are flattened automatically.
+    - Errors are caught and logged; the function fails silently by returning None.
+    """
 
     series = None
 

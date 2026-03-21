@@ -11,6 +11,33 @@ def load_data(folder, identifier, time_period, start_date=None, end_date=None):
     return df
 
 def get_returns(data, start_date=None, end_date=None, type='simple'):
+    """
+    Compute returns for a time series.
+
+    Parameters
+    ----------
+    data : pandas.Series or pandas.DataFrame
+        Time series data to compute returns for.
+    start_date : str, optional
+        Unused. Included for interface consistency.
+    end_date : str, optional
+        Unused. Included for interface consistency.
+    type : str, optional
+        Type of return to compute:
+        - 'simple'     : percentage returns (default)
+        - 'arithmetic' : absolute differences
+
+    Returns
+    -------
+    returns : pandas.Series or pandas.DataFrame
+        Returns of the same shape as the input data. The first observation
+        will contain NaN values due to differencing.
+
+    Raises
+    ------
+    ValueError
+        If an unsupported return type is specified.
+    """
 
     if type == 'simple':
         return data.pct_change()
@@ -20,6 +47,27 @@ def get_returns(data, start_date=None, end_date=None, type='simple'):
         raise ValueError(f"Unsupported return type: {type}")
     
 def mean_returns(data, identifier, time_period, start_date=None, end_date=None):
+    """
+    Calculate the annualised mean simple return of an instrument.
+
+    Parameters
+    ----------
+    data : pandas.DataFrame
+        DataFrame containing time series data.
+    identifier : str
+        Column name of the instrument.
+    time_period : str
+        Time frequency of the data (e.g. '1d').
+    start_date : str, optional
+        Unused. Included for interface consistency.
+    end_date : str, optional
+        Unused. Included for interface consistency.
+
+    Returns
+    -------
+    mean_returns : float
+        Annualised mean of simple returns, scaled using 365.25 days.
+    """
 
     returns = get_returns(data[identifier], type='simple')
     mean_returns = returns.mean() * 365.25
@@ -27,6 +75,36 @@ def mean_returns(data, identifier, time_period, start_date=None, end_date=None):
     return mean_returns
 
 def rolling_average(parameter_func, window_size, data, identifier, time_period, start_date=None, end_date=None):
+    """
+    Compute a rolling metric over a specified window using a custom function.
+
+    Applies a user-defined parameter function over rolling windows of the data
+    and returns the resulting time series.
+
+    Parameters
+    ----------
+    parameter_func : callable
+        Function to apply to each rolling window. Must accept arguments:
+        (data, identifier, time_period).
+    window_size : int
+        Number of observations in each rolling window.
+    data : pandas.DataFrame
+        DataFrame containing time series data.
+    identifier : str
+        Column name of the instrument.
+    time_period : str
+        Time frequency of the data (e.g. '1d').
+    start_date : str, optional
+        Unused. Included for interface consistency.
+    end_date : str, optional
+        Unused. Included for interface consistency.
+
+    Returns
+    -------
+    rolling_df : pandas.DataFrame
+        DataFrame indexed by window end date, containing computed values
+        for each rolling window.
+    """
 
     results = []
 
@@ -40,7 +118,69 @@ def rolling_average(parameter_func, window_size, data, identifier, time_period, 
 
     return pd.DataFrame(results).set_index('Date:')
 
+def calculate_cagr(data, identifier, time_period, start_date=None, end_date=None):
+    """
+    Calculate the Compound Annual Growth Rate (CAGR) of an instrument.
+
+    Parameters
+    ----------
+    data : pandas.DataFrame
+        DataFrame containing time series data.
+    identifier : str
+        Column name of the instrument.
+    time_period : str
+        Time frequency of the data (e.g. '1d').
+    start_date : str, optional
+        Unused. Included for interface consistency.
+    end_date : str, optional
+        Unused. Included for interface consistency.
+
+    Returns
+    -------
+    cagr : float
+        Annualised growth rate of the instrument over the specified period.
+    """
+
+    initial_price = data[identifier].iloc[0]
+    final_price = data[identifier].iloc[-1]
+
+    duration_days = (data.index[-1] - data.index[0]).days
+    duration_years = duration_days / 365.25
+
+    cagr = (final_price / initial_price) ** (1 / duration_years) - 1
+
+    return cagr
+
 def calculate_sharpe_ratio(data, identifier, time_period, start_date=None, end_date=None):
+    """
+    Calculate the annualised Sharpe ratio of an instrument.
+
+    The Sharpe ratio is computed using excess returns over a risk-free rate,
+    with volatility defined as the standard deviation of excess returns.
+
+    Parameters
+    ----------
+    data : pandas.DataFrame
+        DataFrame containing time series data.
+    identifier : str
+        Column name of the instrument.
+    time_period : str
+        Time frequency of the data (e.g. '1d').
+    start_date : str, optional
+        Start date for filtering both asset and macro data.
+    end_date : str, optional
+        End date for filtering both asset and macro data.
+
+    Returns
+    -------
+    sharpe_ratio : float
+        Annualised Sharpe ratio based on daily excess returns.
+
+    Notes
+    -----
+    - Risk-free rate is sourced from 'US01Y' and converted to a daily rate.
+    - Missing values are forward-filled to align with asset data.
+    """
 
     df_macro = pd.read_csv(paths.MACRO_DATA_CSV, index_col=0, parse_dates=True).loc[start_date:end_date]
     returns = get_returns(data[identifier], type='simple')
@@ -53,19 +193,37 @@ def calculate_sharpe_ratio(data, identifier, time_period, start_date=None, end_d
 
     return sharpe_ratio
 
-def calculate_cagr(data, identifier, time_period, start_date=None, end_date=None):
-
-    initial_price = data[identifier].iloc[0]
-    final_price = data[identifier].iloc[-1]
-
-    duration_days = (data.index[-1] - data.index[0]).days
-    duration_years = duration_days / 365.25
-
-    cagr = (final_price / initial_price) ** (1 / duration_years) - 1
-
-    return cagr
-
 def calculate_sortino_ratio(data, identifier, time_period, start_date=None, end_date=None):
+    """
+    Calculate the annualised Sortino ratio of an instrument.
+
+    The Sortino ratio measures risk-adjusted return using downside
+    volatility instead of total volatility.
+
+    Parameters
+    ----------
+    data : pandas.DataFrame
+        DataFrame containing time series data.
+    identifier : str
+        Column name of the instrument.
+    time_period : str
+        Time frequency of the data (e.g. '1d').
+    start_date : str, optional
+        Start date for filtering both asset and macro data.
+    end_date : str, optional
+        End date for filtering both asset and macro data.
+
+    Returns
+    -------
+    sortino_ratio : float
+        Annualised Sortino ratio.
+
+    Notes
+    -----
+    - Downside volatility is calculated using returns below the daily
+    risk-free rate.
+    - Risk-free rate is derived from 'US01Y' and annualised.
+    """
 
     df = pd.read_csv(paths.MACRO_DATA_CSV, index_col=0, parse_dates=True).loc[start_date:end_date]
     risk_free_return = df['US01Y'].mean() / 100

@@ -1,22 +1,20 @@
 import yfinance as yf
 from datetime import datetime, timedelta
+import pandas as pd
 
-# Test your exact tickers
-test_tickers = {
-    'DOW': '^DJI',  # What ticker are you using?
-    'BXY': '^XDB',
-    'NIKKEI': '^N225',
-    'Canadian Dollar Index': '^XDC'
-}
+df = pd.read_csv("watchlist/crypto.csv")
 
-for name, ticker in test_tickers.items():
-    print(f"\n=== {name} ({ticker}) ===")
-    try:
-        data = yf.Ticker(ticker).history(period='5d')
-        if data.empty:
-            print("❌ No data returned")
-        else:
-            print(f"✓ Last 3 days:")
-            print(data.tail(3))
-    except Exception as e:
-        print(f"❌ Error: {e}")
+config={}
+category_name = 'crypto'
+
+headers = df.columns.tolist()
+
+indexed_df = df.set_index('Identifier')
+
+category_config = indexed_df.to_dict('index')
+
+config[category_name] = category_config
+
+print(config['crypto']['BTC'])
+print(config)
+print(headers)
