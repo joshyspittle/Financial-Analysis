@@ -46,13 +46,15 @@ def fetch_data(Ticker, Source, Identifier, start_date=None):
     - Errors are caught and logged; the function fails silently by returning None.
     """
 
-    series = None
+    data = None
 
     try:
 
         if Source == 'FRED':
             series = fred.get_series(Ticker, observation_start=start_date)
-            series.name = Identifier
+            df = series.to_frame(name='Close')
+            df.columns = pd.MultiIndex.from_product([[Identifier], df.columns])
+            data = df
 
         elif Source == 'yfinance':
 
@@ -64,18 +66,59 @@ def fetch_data(Ticker, Source, Identifier, start_date=None):
             if not df.empty:
                 if isinstance(df.columns, pd.MultiIndex):
                     df.columns = df.columns.get_level_values(0)
-                if 'Close' in df.columns:
-                    series = df['Close'].copy()
-                    series.name = Identifier
+                
+                df = df[['Open', 'High', 'Low', 'Close', 'Volume']].copy()
+                df.columns = pd.MultiIndex.from_product([[Identifier], df.columns])
+                data = df
         else:
-            print('other')
+            print(f"Unsupported source: {Source}")
 
     except Exception as e:
         print(f"Error fetching data for {Identifier} from {Source}: {e}")
 
-    return series
+    return data
 
+_cache = {}
 
+def load_data(path, time_period, start_date=None, end_date=None):
+    """
+    Load time series data from a CSV file with in-memory caching.
+
+    The function reads a CSV file into a pandas DataFrame indexed by dates.
+    The full dataset is cached on first load to avoid repeated disk I/O on
+    subsequent calls. Optionally, a date range can be specified to return
+    a filtered subset of the data.
+
+    Parameters
+    ----------
+    path : str
+        File path to the CSV data file.
+    start_date : str or pandas.Timestamp, optional
+        Start date for slicing the data (inclusive). If None, data is
+        returned from the beginning.
+    end_date : str or pandas.Timestamp, optional
+        End date for slicing the data (inclusive). If None, data is
+        returned up to the latest available date.
+
+    Returns
+    -------
+    pandas.DataFrame
+        DataFrame containing the requested date range of the dataset,
+        indexed by datetime.
+
+    Notes
+    -----
+    - The full dataset is cached in memory after the first load.
+    - Date filtering is applied after loading the cached data.
+    - The CSV file is expected to have a datetime index in the first column.
+    """
+        
+    if path not in _cache:
+        _cache[path] = pd.read_parquet(path)
+
+    df = _cache[path]
+
+    return df.loc[start_date:end_date]
 
 
     

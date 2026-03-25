@@ -2,22 +2,14 @@ import yfinance as yf
 import pandas as pd
 from lightweight_charts import Chart
 
-if __name__ == "__main__":
+def price_chart(ohlcv_data, identifier):
 
-    # --- Data ingestion (same as before) ---
-    df = yf.download('BTC-USD', interval='1d', period='max')
-    
-    df = df.droplevel(1, axis=1)
-    df.index.name = 'Date'
-    df = df.reset_index()
-    df = df[['Date', 'Open', 'High', 'Low', 'Close', 'Volume']]
-    df.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
-    
+    df = ohlcv_data.copy().reset_index()
+    df.columns = [c.lower() for c in df.columns]
     df['date'] = pd.to_datetime(df['date']).astype('datetime64[ns]')#.dt.strftime('%Y-%m-%d')
-
-    # Drop any NaN rows
     df = df.dropna(subset=['open', 'high', 'low', 'close'])
-    print(df.head().to_string())
+    df = df[['date', 'open', 'high', 'low', 'close', 'volume']]
+
     # --- Chart ---
     chart = Chart()
 
@@ -44,8 +36,5 @@ if __name__ == "__main__":
 
     # Pass the OHLCV data
     chart.set(df)
-
-    # Save data same as before
-    df.to_csv('btc_data.csv', index=False)
 
     chart.show(block=True)
