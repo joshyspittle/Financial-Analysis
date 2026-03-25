@@ -179,11 +179,7 @@ Current and planned features include:
 | `log_returns` | Close | Log returns — preferred for statistical modelling |
 | `rolling_volatility` | Close | Annualised rolling standard deviation of log returns |
 | `sma` / `ema` | Close | Simple and exponential moving averages |
-| `rsi` | Close | Relative Strength Index (momentum oscillator) |
-| `macd` | Close | Moving Average Convergence Divergence |
-| `atr` | OHLCV | Average True Range — volatility measure using High/Low/Close |
-| `bollinger_bands` | OHLCV | Upper/lower bands at N standard deviations from rolling mean |
-| `obv` | OHLCV | On-Balance Volume — cumulative volume-price momentum |
+
 
 ### `metrics.py`
 Performance and risk metric functions. Accept Close price Series and return scalar values or Series. Used for evaluating strategies, assets, and portfolios.
@@ -194,13 +190,7 @@ Current and planned metrics include:
 |---|---|
 | `sharpe_ratio` | Annualised excess return per unit of volatility |
 | `sortino_ratio` | Sharpe variant penalising only downside volatility |
-| `max_drawdown` | Largest peak-to-trough decline in the series |
-| `calmar_ratio` | Annualised return divided by maximum drawdown |
-| `value_at_risk` | Estimated loss at a given confidence level (parametric and historical) |
-| `cvar` | Conditional VaR — expected loss beyond the VaR threshold |
-| `beta` | Sensitivity of asset returns to a benchmark |
-| `alpha` | Excess return above what beta-adjusted benchmark exposure would predict |
-| `correlation_matrix` | Pairwise correlation across a panel of assets |
+
 
 ### `models.py`
 Statistical and stochastic models for return simulation and asset pricing.
@@ -227,13 +217,13 @@ Key assumptions:
 
 In practice these assumptions are violated — financial returns exhibit fat tails, volatility clustering (GARCH effects), and occasional jumps — but GBM remains a useful baseline for price path simulation and options pricing. Parameters `μ` and `σ` are estimated from historical data passed into the model.
 
-The discrete-time simulation uses the exact solution to avoid Euler-Maruyama discretisation error:
+The discrete-time exact solution (planned — avoids Euler-Maruyama discretisation error):
 
 ```python
 S(t+dt) = S(t) * exp((μ - 0.5σ²)dt + σ√dt * Z)
 ```
 
-where `Z ~ N(0,1)`.
+where `Z ~ N(0,1)`. Currently the model is stubbed; simulation and Monte Carlo are on the roadmap.
 
 ### `visualisation.py`
 Interactive charting using `lightweight-charts`. Currently provides:
@@ -279,11 +269,25 @@ Parquet files, one per category. Not committed to version control (`.gitignore`)
 - [ ] **Cointegration testing** — identify long-run equilibrium relationships between asset pairs (pairs trading foundation)
 
 ### Features & Indicators
+- [ ] **RSI** — Relative Strength Index; momentum oscillator bounded 0–100, flags overbought (>70) and oversold (<30) conditions
+- [ ] **MACD** — Moving Average Convergence Divergence; difference between fast and slow EMAs with a signal line, used for trend and momentum signals
+- [ ] **ATR** — Average True Range; volatility measure using High/Low/Close, useful for position sizing and stop placement
+- [ ] **Bollinger Bands** — upper/lower bands at N standard deviations from a rolling mean; identifies volatility expansion and mean-reversion setups
+- [ ] **OBV** — On-Balance Volume; cumulative volume-price momentum indicator
 - [ ] **Ichimoku Cloud** — trend, momentum, and support/resistance in one indicator
 - [ ] **Volume profile** — price levels with highest traded volume
 - [ ] **Regime detection** — Hidden Markov Model to identify bull/bear/neutral market regimes
 - [ ] **Realised vs implied volatility spread** — compare historical vol to options-implied vol where available
 - [ ] **Macro factor overlays** — correlate asset performance with yield curve slope, DXY, credit spreads
+
+### Metrics
+- [ ] **Max drawdown** — largest peak-to-trough decline in a return series
+- [ ] **Calmar ratio** — annualised return divided by maximum drawdown
+- [ ] **Value at Risk (VaR)** — estimated loss at a given confidence level; both parametric (assumes normality) and historical (empirical distribution) methods
+- [ ] **Conditional VaR (CVaR)** — expected loss beyond the VaR threshold; more conservative and coherent risk measure than VaR alone
+- [ ] **Beta** — sensitivity of asset returns to a benchmark return series
+- [ ] **Alpha** — excess return above what beta-adjusted benchmark exposure would predict
+- [ ] **Correlation matrix** — pairwise correlation across a panel of assets
 
 ### Multi-Asset Analysis & Portfolio Construction
 
