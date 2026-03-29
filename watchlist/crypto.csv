@@ -23,6 +23,8 @@ TAO,TAO22974-USD,Bittensor,Crypto,L1,AI,yfinance
 WLD,WLD-USD,Worldcoin,Crypto,ERC-20,AI,yfinance
 MOG,MOG-USD,Mog Coin,Crypto,ERC-20,Memecoin,yfinance
 UNI,UNI7083-USD,Uniswap,Crypto,ERC-20,DeFi,yfinance
+NEAR,NEAR-USD,NEAR Protocol,Crytpo,L1,Ecosystem,yfinance
 CVX,CVX-USD,Convex Finance,Crypto,ERC-20,DeFI,yfinance
 TRAC,TRAC-USD,Origin Trail,Crypto,ERC-20,AI,yfinance
 MON,MON30495-USD,Monad,Crypto,L1,Ecosystem,yfinance
+COSMOS,ATOM-USD,Cosmos,Crypto,L1,Ecosystem,yfinance

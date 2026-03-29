@@ -1,160 +1,52 @@
-import pandas as pd
-import src.paths as paths
+"""Simple return and volatility estimators for stochastic modelling.
+
+The functions here are currently lightweight helpers for simulation work.
+They assume daily data and annualise using either ``365.25`` for BTC or
+``252`` for non-BTC assets. That convention is provisional and should be
+revisited once trading-calendar handling is formalised.
+"""
+
 import numpy as np
+import pandas as pd
 
-def load_data(folder, identifier, time_period, start_date=None, end_date=None):
+import src.utils as utils
 
-    df = pd.read_csv(folder, index_col=0, parse_dates=True).loc[start_date:end_date]
 
-    return df
+def expected_arithmetic_return(close_series: pd.Series) -> float:
+    """Estimate arithmetic return as drift plus half the variance."""
 
-def get_returns(close_data, type='log'):
-    """
-    Calculate returns for a given time series.
-
-    Parameters
-    ----------
-    data : pandas.Series or pandas.DataFrame
-        Time series data to compute returns for.
-    type : str, optional
-        Type of return to calculate:
-        - 'log'        : logarithmic returns
-        - 'simple'     : percentage returns
-        - 'arithmetic' : absolute differences
-        Default is 'log'.
-
-    Returns
-    -------
-    returns : pandas.Series or pandas.DataFrame
-        Returns of the same shape as the input data.
-        The first observation will contain NaN values due to differencing.
-
-    Raises
-    ------
-    ValueError
-        If an unsupported return type is specified.
-    """
-
-    if type == 'log':
-        return np.log(close_data / data.shift(1))
-    elif type == 'simple':
-        return close_data.pct_change()
-    elif type == 'arithmetic':
-        return close_data.diff()
-    else:
-        raise ValueError(f"Unsupported return type: {type}")
-
-def expected_arithmetic_return(close_data, identifier, time_period, start_date=None, end_date=None):
-    """
-    Estimate the expected return of an instrument using drift and volatility.
-
-    The expected return is computed assuming lognormally distributed returns:
-    E[R] = μ + (σ² / 2), where μ is the drift and σ is the volatility.
-
-    Parameters
-    ----------
-    data : pandas.DataFrame
-        DataFrame containing the time series data.
-    identifier : str
-        Column name of the instrument.
-    time_period : str
-        Time frequency of the data (e.g. '1d').
-    start_date : str, optional
-        Start date for the calculation (inclusive).
-    end_date : str, optional
-        End date for the calculation (inclusive).
-
-    Returns
-    -------
-    expected_return : float
-        Annualised expected return of the instrument.
-    """
-
-    drift = calculate_drift(close_data, identifier, time_period, start_date, end_date)
-    volatility = calculate_volatility(close_data, identifier, time_period, start_date, end_date)
+    drift = calculate_drift(close_series)
+    volatility = calculate_volatility(close_series)
     expected_return = drift + (volatility ** 2) / 2
 
-    return expected_return
+    return float(expected_return)
 
-def calculate_volatility(close_data, identifier, time_period, start_date=None, end_date=None):
-    """
-    Calculate the annualised volatility of an instrument.
 
-    Volatility is computed as the standard deviation of log returns,
-    scaled to an annual value.
+def calculate_volatility(close_series: pd.Series) -> float:
+    """Return annualised volatility from log returns."""
 
-    Parameters
-    ----------
-    data : pandas.DataFrame
-        DataFrame containing the time series data.
-    identifier : str
-        Column name of the instrument.
-    time_period : str
-        Time frequency of the data (e.g. '1d').
-    start_date : str, optional
-        Start date for the calculation (inclusive).
-    end_date : str, optional
-        End date for the calculation (inclusive).
-
-    Returns
-    -------
-    annual_volatility : float
-        Annualised standard deviation of log returns.
-    """
-
-    log_returns = get_returns(close_data[identifier])
-
+    asset_id = str(close_series.name)
+    log_returns = utils.get_returns(close_series, return_type='log')
     volatility = np.std(log_returns, ddof=1)
 
-    # NEED TO CHANGE THIS
-    if identifier == 'BTC':
+    if asset_id == 'BTC':
         annual_volatility = volatility * np.sqrt(365.25)
     else:
-         annual_volatility = volatility * np.sqrt(252)
+        annual_volatility = volatility * np.sqrt(252)
 
-    return annual_volatility
+    return float(annual_volatility)
 
-def calculate_drift(close_data, identifier, time_period, start_date=None, end_date=None):
-    """
-    Calculate the annualised drift of an instrument.
 
-    Drift is defined as the mean of log returns, scaled to an annual value.
+def calculate_drift(close_series: pd.Series) -> float:
+    """Return annualised drift from mean log returns."""
 
-    Parameters
-    ----------
-    data : pandas.DataFrame
-        DataFrame containing the time series data.
-    identifier : str
-        Column name of the instrument.
-    time_period : str
-        Time frequency of the data (e.g. '1d').
-    start_date : str, optional
-        Start date for the calculation (inclusive).
-    end_date : str, optional
-        End date for the calculation (inclusive).
-
-    Returns
-    -------
-    annual_drift : float
-        Annualised mean of log returns.
-    """
-
-    #log_prices = np.log(df[identifier].values)
-    #log_returns = np.diff(log_prices)
-
-    log_returns = get_returns(close_data[identifier])
-
+    asset_id = str(close_series.name)
+    log_returns = utils.get_returns(close_series, return_type='log')
     drift = np.mean(log_returns)
 
-    # NEED TO CHANGE THIS
-    if identifier == 'BTC':
+    if asset_id == 'BTC':
         annual_drift = drift * 365.25
     else:
         annual_drift = drift * 252
 
-    return annual_drift
-
-data = load_data(paths.CRYPTO_DATA_PARQUET, 'BTC', '1d', '2025-09-01', '2026-02-20')
-print('volatility:', calculate_volatility(data, 'BTC', '1d', '2025-09-01'))
-print('drift:', calculate_drift(data, 'BTC', '1d', '2025-09-01'))
-print('expected_return:', expected_arithmetic_return(data, 'BTC', '1d', '2025-09-01'))
+    return float(annual_drift)
