@@ -92,13 +92,18 @@ Financial-Analysis/
 ├── run_updates.py          # Data ingestion and incremental update pipeline
 │
 ├── src/
+|   ├── __init__.py
 │   ├── config_loader.py
 │   ├── data_getter.py
 │   ├── features.py
 │   ├── metrics.py
 │   ├── models.py
 │   ├── paths.py
+│   ├── portfolio.py
+│   ├── utils.py
 │   └── visualisation.py
+|
+├── logs/
 │
 ├── watchlist/
 │   ├── crypto.csv
@@ -269,8 +274,8 @@ Parquet files, one per category. Not committed to version control (`.gitignore`)
 - [ ] **Cointegration testing** — identify long-run equilibrium relationships between asset pairs (pairs trading foundation)
 
 ### Features & Indicators
-- [ ] **RSI** — Relative Strength Index; momentum oscillator bounded 0–100, flags overbought (>70) and oversold (<30) conditions
-- [ ] **MACD** — Moving Average Convergence Divergence; difference between fast and slow EMAs with a signal line, used for trend and momentum signals
+- [x] **RSI** — Relative Strength Index; momentum oscillator bounded 0–100, flags overbought (>70) and oversold (<30) conditions
+- [x] **MACD** — Moving Average Convergence Divergence; difference between fast and slow EMAs with a signal line, used for trend and momentum signals
 - [ ] **ATR** — Average True Range; volatility measure using High/Low/Close, useful for position sizing and stop placement
 - [ ] **Bollinger Bands** — upper/lower bands at N standard deviations from a rolling mean; identifies volatility expansion and mean-reversion setups
 - [ ] **OBV** — On-Balance Volume; cumulative volume-price momentum indicator
@@ -281,7 +286,7 @@ Parquet files, one per category. Not committed to version control (`.gitignore`)
 - [ ] **Macro factor overlays** — correlate asset performance with yield curve slope, DXY, credit spreads
 
 ### Metrics
-- [ ] **Max drawdown** — largest peak-to-trough decline in a return series
+- [x] **Max drawdown** — largest peak-to-trough decline in a return series
 - [ ] **Calmar ratio** — annualised return divided by maximum drawdown
 - [ ] **Value at Risk (VaR)** — estimated loss at a given confidence level; both parametric (assumes normality) and historical (empirical distribution) methods
 - [ ] **Conditional VaR (CVaR)** — expected loss beyond the VaR threshold; more conservative and coherent risk measure than VaR alone
@@ -294,7 +299,7 @@ Parquet files, one per category. Not committed to version control (`.gitignore`)
 A basket of assets can be analysed from two perspectives — historical performance and forward-looking simulation — with a shared portfolio construction layer sitting between them.
 
 **Historical Analysis**
-- [ ] **Portfolio returns** — compute weighted return series for a configurable basket of assets with user-defined weights
+- [x] **Portfolio returns** — compute weighted return series for a configurable basket of assets with user-defined weights
 - [ ] **Rolling correlation heatmaps** — track how pairwise correlations between assets evolve over time; identify diversification breakdown during stress periods
 - [ ] **Contribution analysis** — decompose portfolio return and risk into per-asset contributions, identifying which positions are driving performance or adding unnecessary volatility
 - [ ] **Drawdown analysis** — detailed drawdown periods, duration, and recovery time at both the asset and portfolio level; compare individual asset drawdowns against the portfolio drawdown to assess diversification benefit
@@ -316,14 +321,14 @@ A basket of assets can be analysed from two perspectives — historical performa
 - [ ] **CLI** — command-line interface for running updates, querying data, and triggering analysis without editing `dev.py`
 - [ ] **Backtesting engine** — event-driven or vectorised backtester with transaction cost modelling
 - [ ] **Alerting** — price/indicator threshold alerts via email or Telegram
-- [ ] **Scheduled updates** — cron job or task scheduler integration for daily data updates
+- [x] **Scheduled updates** — cron job or task scheduler integration for daily data updates
 
 ### Charting
-- [ ] **Indicator overlays** — plot SMA, EMA, Bollinger Bands directly on the price chart
-- [ ] **Multi-pane charts** — RSI, MACD, and volume in separate synchronised panes
+- [x] **Indicator overlays** — plot SMA, EMA, Bollinger Bands directly on the price chart
+- [x] **Multi-pane charts** — RSI, MACD, and volume in separate synchronised panes
 - [ ] **Multi-asset comparison** — normalised price performance of multiple assets on one chart
 - [ ] **Drawdown chart** — visualise underwater equity curve below a rolling high watermark
-- [ ] **Configurable styling** — pass chart style options rather than hardcoding colours
+- [x] **Configurable styling** — pass chart style options rather than hardcoding colours
 
 ---
 
