@@ -1,0 +1,474 @@
+2026-03-30 14:45:31,619 | INFO | Starting update run
+2026-03-30 14:45:31,620 | INFO | [commodities] start
+2026-03-30 14:45:31,703 | INFO | [commodities] loaded existing parquet C:\Users\jspit\OneDrive\Documents\Financial Analysis\data\commodities_data.parquet
+2026-03-30 14:45:31,704 | INFO | [commodities] Gold start | source=yfinance ticker=GC=F
+2026-03-30 14:45:31,709 | INFO | [commodities] Gold incremental fetch from 2026-03-25
+2026-03-30 14:45:32,568 | INFO | [commodities] Gold fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:32,577 | INFO | [commodities] Gold merge action=updated
+2026-03-30 14:45:32,579 | INFO | [commodities] Silver start | source=yfinance ticker=SI=F
+2026-03-30 14:45:32,580 | INFO | [commodities] Silver incremental fetch from 2026-03-25
+2026-03-30 14:45:32,987 | INFO | [commodities] Silver fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:33,000 | INFO | [commodities] Silver merge action=updated
+2026-03-30 14:45:33,000 | INFO | [commodities] Copper start | source=yfinance ticker=HG=F
+2026-03-30 14:45:33,002 | INFO | [commodities] Copper incremental fetch from 2026-03-25
+2026-03-30 14:45:33,415 | INFO | [commodities] Copper fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:33,426 | INFO | [commodities] Copper merge action=updated
+2026-03-30 14:45:33,426 | INFO | [commodities] Crude start | source=yfinance ticker=CL=F
+2026-03-30 14:45:33,428 | INFO | [commodities] Crude incremental fetch from 2026-03-25
+2026-03-30 14:45:33,651 | INFO | [commodities] Crude fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:33,658 | INFO | [commodities] Crude merge action=updated
+2026-03-30 14:45:33,658 | INFO | [commodities] Brent start | source=yfinance ticker=BZ=F
+2026-03-30 14:45:33,660 | INFO | [commodities] Brent incremental fetch from 2026-03-25
+2026-03-30 14:45:33,845 | INFO | [commodities] Brent fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:33,853 | INFO | [commodities] Brent merge action=updated
+2026-03-30 14:45:33,853 | INFO | [commodities] Natgas start | source=yfinance ticker=NG=F
+2026-03-30 14:45:33,855 | INFO | [commodities] Natgas incremental fetch from 2026-03-25
+2026-03-30 14:45:34,017 | INFO | [commodities] Natgas fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:34,027 | INFO | [commodities] Natgas merge action=updated
+2026-03-30 14:45:34,027 | INFO | [commodities] Corn start | source=yfinance ticker=ZC=F
+2026-03-30 14:45:34,029 | INFO | [commodities] Corn incremental fetch from 2026-03-25
+2026-03-30 14:45:34,198 | INFO | [commodities] Corn fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:34,207 | INFO | [commodities] Corn merge action=updated
+2026-03-30 14:45:34,207 | INFO | [commodities] Wheat start | source=yfinance ticker=ZW=F
+2026-03-30 14:45:34,210 | INFO | [commodities] Wheat incremental fetch from 2026-03-25
+2026-03-30 14:45:34,375 | INFO | [commodities] Wheat fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:34,382 | INFO | [commodities] Wheat merge action=updated
+2026-03-30 14:45:34,382 | INFO | [commodities] Soy start | source=yfinance ticker=ZS=F
+2026-03-30 14:45:34,383 | INFO | [commodities] Soy incremental fetch from 2026-03-25
+2026-03-30 14:45:34,560 | INFO | [commodities] Soy fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:34,568 | INFO | [commodities] Soy merge action=updated
+2026-03-30 14:45:34,568 | INFO | [commodities] Coffee start | source=yfinance ticker=KC=F
+2026-03-30 14:45:34,571 | INFO | [commodities] Coffee incremental fetch from 2026-03-25
+2026-03-30 14:45:34,765 | INFO | [commodities] Coffee fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:34,773 | INFO | [commodities] Coffee merge action=updated
+2026-03-30 14:45:34,841 | INFO | [commodities] saved | updated=10 skipped=0 failed=0 rows=6611 cols=50 range=2000-01-03 -> 2026-03-30
+2026-03-30 14:45:34,842 | INFO | [crypto] start
+2026-03-30 14:45:34,908 | INFO | [crypto] loaded existing parquet C:\Users\jspit\OneDrive\Documents\Financial Analysis\data\crypto_data.parquet
+2026-03-30 14:45:34,909 | INFO | [crypto] BTC start | source=yfinance ticker=BTC-USD
+2026-03-30 14:45:34,912 | INFO | [crypto] BTC incremental fetch from 2026-03-25
+2026-03-30 14:45:35,065 | INFO | [crypto] BTC fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:35,073 | INFO | [crypto] BTC merge action=updated
+2026-03-30 14:45:35,073 | INFO | [crypto] ETH start | source=yfinance ticker=ETH-USD
+2026-03-30 14:45:35,074 | INFO | [crypto] ETH incremental fetch from 2026-03-25
+2026-03-30 14:45:35,234 | INFO | [crypto] ETH fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:35,248 | INFO | [crypto] ETH merge action=updated
+2026-03-30 14:45:35,248 | INFO | [crypto] DOGE start | source=yfinance ticker=DOGE-USD
+2026-03-30 14:45:35,251 | INFO | [crypto] DOGE incremental fetch from 2026-03-25
+2026-03-30 14:45:35,433 | INFO | [crypto] DOGE fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:35,443 | INFO | [crypto] DOGE merge action=updated
+2026-03-30 14:45:35,443 | INFO | [crypto] PEPE start | source=yfinance ticker=PEPE24478-USD
+2026-03-30 14:45:35,445 | INFO | [crypto] PEPE incremental fetch from 2026-03-25
+2026-03-30 14:45:35,588 | INFO | [crypto] PEPE fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:35,597 | INFO | [crypto] PEPE merge action=updated
+2026-03-30 14:45:35,597 | INFO | [crypto] WIF start | source=yfinance ticker=WIF-USD
+2026-03-30 14:45:35,599 | INFO | [crypto] WIF incremental fetch from 2026-03-25
+2026-03-30 14:45:35,745 | INFO | [crypto] WIF fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:35,755 | INFO | [crypto] WIF merge action=updated
+2026-03-30 14:45:35,756 | INFO | [crypto] LINK start | source=yfinance ticker=LINK-USD
+2026-03-30 14:45:35,760 | INFO | [crypto] LINK incremental fetch from 2026-03-25
+2026-03-30 14:45:35,923 | INFO | [crypto] LINK fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:35,932 | INFO | [crypto] LINK merge action=updated
+2026-03-30 14:45:35,932 | INFO | [crypto] XRP start | source=yfinance ticker=XRP-USD
+2026-03-30 14:45:35,934 | INFO | [crypto] XRP incremental fetch from 2026-03-25
+2026-03-30 14:45:36,108 | INFO | [crypto] XRP fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:36,118 | INFO | [crypto] XRP merge action=updated
+2026-03-30 14:45:36,118 | INFO | [crypto] CRV start | source=yfinance ticker=CRV-USD
+2026-03-30 14:45:36,120 | INFO | [crypto] CRV incremental fetch from 2026-03-25
+2026-03-30 14:45:36,257 | INFO | [crypto] CRV fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:36,268 | INFO | [crypto] CRV merge action=updated
+2026-03-30 14:45:36,268 | INFO | [crypto] PENDLE start | source=yfinance ticker=PENDLE-USD
+2026-03-30 14:45:36,270 | INFO | [crypto] PENDLE incremental fetch from 2026-03-25
+2026-03-30 14:45:36,469 | INFO | [crypto] PENDLE fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:36,480 | INFO | [crypto] PENDLE merge action=updated
+2026-03-30 14:45:36,480 | INFO | [crypto] AAVE start | source=yfinance ticker=AAVE-USD
+2026-03-30 14:45:36,483 | INFO | [crypto] AAVE incremental fetch from 2026-03-25
+2026-03-30 14:45:36,648 | INFO | [crypto] AAVE fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:36,656 | INFO | [crypto] AAVE merge action=updated
+2026-03-30 14:45:36,656 | INFO | [crypto] DOT start | source=yfinance ticker=DOT-USD
+2026-03-30 14:45:36,658 | INFO | [crypto] DOT incremental fetch from 2026-03-25
+2026-03-30 14:45:36,821 | INFO | [crypto] DOT fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:36,832 | INFO | [crypto] DOT merge action=updated
+2026-03-30 14:45:36,832 | INFO | [crypto] ADA start | source=yfinance ticker=ADA-USD
+2026-03-30 14:45:36,834 | INFO | [crypto] ADA incremental fetch from 2026-03-25
+2026-03-30 14:45:37,017 | INFO | [crypto] ADA fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:37,024 | INFO | [crypto] ADA merge action=updated
+2026-03-30 14:45:37,024 | INFO | [crypto] AVAX start | source=yfinance ticker=AVAX-USD
+2026-03-30 14:45:37,026 | INFO | [crypto] AVAX incremental fetch from 2026-03-25
+2026-03-30 14:45:37,183 | INFO | [crypto] AVAX fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:37,190 | INFO | [crypto] AVAX merge action=updated
+2026-03-30 14:45:37,190 | INFO | [crypto] LTC start | source=yfinance ticker=LTC-USD
+2026-03-30 14:45:37,192 | INFO | [crypto] LTC incremental fetch from 2026-03-25
+2026-03-30 14:45:37,374 | INFO | [crypto] LTC fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:37,384 | INFO | [crypto] LTC merge action=updated
+2026-03-30 14:45:37,384 | INFO | [crypto] HBAR start | source=yfinance ticker=HBAR-USD
+2026-03-30 14:45:37,386 | INFO | [crypto] HBAR incremental fetch from 2026-03-25
+2026-03-30 14:45:37,571 | INFO | [crypto] HBAR fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:37,581 | INFO | [crypto] HBAR merge action=updated
+2026-03-30 14:45:37,581 | INFO | [crypto] XMR start | source=yfinance ticker=XMR-USD
+2026-03-30 14:45:37,583 | INFO | [crypto] XMR incremental fetch from 2026-03-25
+2026-03-30 14:45:37,763 | INFO | [crypto] XMR fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:37,773 | INFO | [crypto] XMR merge action=updated
+2026-03-30 14:45:37,773 | INFO | [crypto] ZEC start | source=yfinance ticker=ZEC-USD
+2026-03-30 14:45:37,775 | INFO | [crypto] ZEC incremental fetch from 2026-03-25
+2026-03-30 14:45:37,963 | INFO | [crypto] ZEC fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:37,972 | INFO | [crypto] ZEC merge action=updated
+2026-03-30 14:45:37,972 | INFO | [crypto] XLM start | source=yfinance ticker=XLM-USD
+2026-03-30 14:45:37,974 | INFO | [crypto] XLM incremental fetch from 2026-03-25
+2026-03-30 14:45:38,190 | INFO | [crypto] XLM fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:38,199 | INFO | [crypto] XLM merge action=updated
+2026-03-30 14:45:38,199 | INFO | [crypto] FET start | source=yfinance ticker=FET-USD
+2026-03-30 14:45:38,200 | INFO | [crypto] FET incremental fetch from 2026-03-25
+2026-03-30 14:45:38,384 | INFO | [crypto] FET fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:38,395 | INFO | [crypto] FET merge action=updated
+2026-03-30 14:45:38,395 | INFO | [crypto] RENDER start | source=yfinance ticker=RENDER-USD
+2026-03-30 14:45:38,397 | INFO | [crypto] RENDER incremental fetch from 2026-03-25
+2026-03-30 14:45:38,619 | INFO | [crypto] RENDER fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:38,631 | INFO | [crypto] RENDER merge action=updated
+2026-03-30 14:45:38,631 | INFO | [crypto] TAO start | source=yfinance ticker=TAO22974-USD
+2026-03-30 14:45:38,633 | INFO | [crypto] TAO incremental fetch from 2026-03-25
+2026-03-30 14:45:38,781 | INFO | [crypto] TAO fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:38,790 | INFO | [crypto] TAO merge action=updated
+2026-03-30 14:45:38,790 | INFO | [crypto] WLD start | source=yfinance ticker=WLD-USD
+2026-03-30 14:45:38,793 | INFO | [crypto] WLD incremental fetch from 2026-03-25
+2026-03-30 14:45:38,998 | INFO | [crypto] WLD fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:39,006 | INFO | [crypto] WLD merge action=updated
+2026-03-30 14:45:39,006 | INFO | [crypto] MOG start | source=yfinance ticker=MOG-USD
+2026-03-30 14:45:39,008 | INFO | [crypto] MOG incremental fetch from 2026-03-25
+2026-03-30 14:45:39,174 | INFO | [crypto] MOG fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:39,183 | INFO | [crypto] MOG merge action=updated
+2026-03-30 14:45:39,183 | INFO | [crypto] UNI start | source=yfinance ticker=UNI7083-USD
+2026-03-30 14:45:39,184 | INFO | [crypto] UNI incremental fetch from 2026-03-25
+2026-03-30 14:45:39,370 | INFO | [crypto] UNI fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:39,379 | INFO | [crypto] UNI merge action=updated
+2026-03-30 14:45:39,379 | INFO | [crypto] NEAR start | source=yfinance ticker=NEAR-USD
+2026-03-30 14:45:39,380 | INFO | [crypto] NEAR incremental fetch from 2026-03-25
+2026-03-30 14:45:39,583 | INFO | [crypto] NEAR fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:39,592 | INFO | [crypto] NEAR merge action=updated
+2026-03-30 14:45:39,593 | INFO | [crypto] CVX start | source=yfinance ticker=CVX-USD
+2026-03-30 14:45:39,595 | INFO | [crypto] CVX incremental fetch from 2026-03-25
+2026-03-30 14:45:39,812 | INFO | [crypto] CVX fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:39,820 | INFO | [crypto] CVX merge action=updated
+2026-03-30 14:45:39,820 | INFO | [crypto] TRAC start | source=yfinance ticker=TRAC-USD
+2026-03-30 14:45:39,824 | INFO | [crypto] TRAC incremental fetch from 2026-03-25
+2026-03-30 14:45:40,006 | INFO | [crypto] TRAC fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:40,016 | INFO | [crypto] TRAC merge action=updated
+2026-03-30 14:45:40,016 | INFO | [crypto] MON start | source=yfinance ticker=MON30495-USD
+2026-03-30 14:45:40,018 | INFO | [crypto] MON incremental fetch from 2026-03-25
+2026-03-30 14:45:40,168 | INFO | [crypto] MON fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:40,178 | INFO | [crypto] MON merge action=updated
+2026-03-30 14:45:40,178 | INFO | [crypto] COSMOS start | source=yfinance ticker=ATOM-USD
+2026-03-30 14:45:40,180 | INFO | [crypto] COSMOS incremental fetch from 2026-03-25
+2026-03-30 14:45:40,382 | INFO | [crypto] COSMOS fetched 6 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:40,391 | INFO | [crypto] COSMOS merge action=updated
+2026-03-30 14:45:40,477 | INFO | [crypto] saved | updated=29 skipped=0 failed=0 rows=4213 cols=145 range=2014-09-17 -> 2026-03-30
+2026-03-30 14:45:40,477 | INFO | [macro] start
+2026-03-30 14:45:40,503 | INFO | [macro] loaded existing parquet C:\Users\jspit\OneDrive\Documents\Financial Analysis\data\macro_data.parquet
+2026-03-30 14:45:40,503 | INFO | [macro] VIX start | source=yfinance ticker=^VIX
+2026-03-30 14:45:40,506 | INFO | [macro] VIX incremental fetch from 2025-12-30
+2026-03-30 14:45:40,665 | INFO | [macro] VIX fetched 62 rows | 2025-12-30 -> 2026-03-30
+2026-03-30 14:45:40,680 | INFO | [macro] VIX merge action=updated
+2026-03-30 14:45:40,680 | INFO | [macro] OVERNIGHT start | source=FRED ticker=SOFR
+2026-03-30 14:45:40,683 | INFO | [macro] OVERNIGHT incremental fetch from 2025-12-30
+2026-03-30 14:45:40,958 | INFO | [macro] OVERNIGHT fetched 64 rows | 2025-12-30 -> 2026-03-27
+2026-03-30 14:45:40,973 | INFO | [macro] OVERNIGHT merge action=updated
+2026-03-30 14:45:40,973 | INFO | [macro] US1MTB start | source=FRED ticker=DTB4WK
+2026-03-30 14:45:40,976 | INFO | [macro] US1MTB incremental fetch from 2025-12-30
+2026-03-30 14:45:41,249 | INFO | [macro] US1MTB fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:41,263 | INFO | [macro] US1MTB merge action=updated
+2026-03-30 14:45:41,263 | INFO | [macro] US3MTB start | source=FRED ticker=DGS3MO
+2026-03-30 14:45:41,265 | INFO | [macro] US3MTB incremental fetch from 2025-12-30
+2026-03-30 14:45:41,514 | INFO | [macro] US3MTB fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:41,528 | INFO | [macro] US3MTB merge action=updated
+2026-03-30 14:45:41,528 | INFO | [macro] US6MTB start | source=FRED ticker=DGS6MO
+2026-03-30 14:45:41,532 | INFO | [macro] US6MTB incremental fetch from 2025-12-30
+2026-03-30 14:45:41,767 | INFO | [macro] US6MTB fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:41,782 | INFO | [macro] US6MTB merge action=updated
+2026-03-30 14:45:41,782 | INFO | [macro] US01Y start | source=FRED ticker=DGS1
+2026-03-30 14:45:41,784 | INFO | [macro] US01Y incremental fetch from 2025-12-30
+2026-03-30 14:45:42,050 | INFO | [macro] US01Y fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:42,067 | INFO | [macro] US01Y merge action=updated
+2026-03-30 14:45:42,067 | INFO | [macro] US02Y start | source=FRED ticker=DGS2
+2026-03-30 14:45:42,070 | INFO | [macro] US02Y incremental fetch from 2025-12-30
+2026-03-30 14:45:42,340 | INFO | [macro] US02Y fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:42,354 | INFO | [macro] US02Y merge action=updated
+2026-03-30 14:45:42,354 | INFO | [macro] US03Y start | source=FRED ticker=DGS3
+2026-03-30 14:45:42,356 | INFO | [macro] US03Y incremental fetch from 2025-12-30
+2026-03-30 14:45:42,637 | INFO | [macro] US03Y fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:42,652 | INFO | [macro] US03Y merge action=updated
+2026-03-30 14:45:42,652 | INFO | [macro] US05Y start | source=FRED ticker=DGS5
+2026-03-30 14:45:42,656 | INFO | [macro] US05Y incremental fetch from 2025-12-30
+2026-03-30 14:45:42,914 | INFO | [macro] US05Y fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:42,928 | INFO | [macro] US05Y merge action=updated
+2026-03-30 14:45:42,929 | INFO | [macro] US07Y start | source=FRED ticker=DGS7
+2026-03-30 14:45:42,933 | INFO | [macro] US07Y incremental fetch from 2025-12-30
+2026-03-30 14:45:43,193 | INFO | [macro] US07Y fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:43,207 | INFO | [macro] US07Y merge action=updated
+2026-03-30 14:45:43,207 | INFO | [macro] US10Y start | source=FRED ticker=DGS10
+2026-03-30 14:45:43,210 | INFO | [macro] US10Y incremental fetch from 2025-12-30
+2026-03-30 14:45:43,587 | INFO | [macro] US10Y fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:43,601 | INFO | [macro] US10Y merge action=updated
+2026-03-30 14:45:43,602 | INFO | [macro] US20Y start | source=FRED ticker=DGS20
+2026-03-30 14:45:43,603 | INFO | [macro] US20Y incremental fetch from 2025-12-30
+2026-03-30 14:45:43,953 | INFO | [macro] US20Y fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:43,970 | INFO | [macro] US20Y merge action=updated
+2026-03-30 14:45:43,970 | INFO | [macro] US30Y start | source=FRED ticker=DGS30
+2026-03-30 14:45:43,973 | INFO | [macro] US30Y incremental fetch from 2025-12-30
+2026-03-30 14:45:44,236 | INFO | [macro] US30Y fetched 63 rows | 2025-12-30 -> 2026-03-26
+2026-03-30 14:45:44,247 | INFO | [macro] US30Y merge action=updated
+2026-03-30 14:45:44,248 | INFO | [macro] FEDFUNDS start | source=FRED ticker=FEDFUNDS
+2026-03-30 14:45:44,249 | INFO | [macro] FEDFUNDS incremental fetch from 2025-12-30
+2026-03-30 14:45:44,505 | INFO | [macro] FEDFUNDS fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:44,525 | INFO | [macro] FEDFUNDS merge action=updated
+2026-03-30 14:45:44,525 | INFO | [macro] GDPR start | source=FRED ticker=GDPC1
+2026-03-30 14:45:44,527 | INFO | [macro] GDPR incremental fetch from 2025-12-30
+2026-03-30 14:45:44,919 | INFO | [macro] GDPR fetched 1 rows | 2025-10-01 -> 2025-10-01
+2026-03-30 14:45:44,940 | INFO | [macro] GDPR merge action=updated
+2026-03-30 14:45:44,940 | INFO | [macro] GDPN start | source=FRED ticker=GDP
+2026-03-30 14:45:44,942 | INFO | [macro] GDPN incremental fetch from 2025-12-30
+2026-03-30 14:45:45,300 | INFO | [macro] GDPN fetched 1 rows | 2025-10-01 -> 2025-10-01
+2026-03-30 14:45:45,321 | INFO | [macro] GDPN merge action=updated
+2026-03-30 14:45:45,321 | INFO | [macro] CPIH start | source=FRED ticker=CPIAUCSL
+2026-03-30 14:45:45,324 | INFO | [macro] CPIH incremental fetch from 2025-12-30
+2026-03-30 14:45:45,664 | INFO | [macro] CPIH fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:45,682 | INFO | [macro] CPIH merge action=updated
+2026-03-30 14:45:45,682 | INFO | [macro] CPIC start | source=FRED ticker=CPILFENS
+2026-03-30 14:45:45,685 | INFO | [macro] CPIC incremental fetch from 2025-12-30
+2026-03-30 14:45:46,013 | INFO | [macro] CPIC fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:46,033 | INFO | [macro] CPIC merge action=updated
+2026-03-30 14:45:46,033 | INFO | [macro] PPIH start | source=FRED ticker=PPIACO
+2026-03-30 14:45:46,035 | INFO | [macro] PPIH incremental fetch from 2025-12-30
+2026-03-30 14:45:46,377 | INFO | [macro] PPIH fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:46,396 | INFO | [macro] PPIH merge action=updated
+2026-03-30 14:45:46,396 | INFO | [macro] PPIC start | source=FRED ticker=WPSFD4131
+2026-03-30 14:45:46,399 | INFO | [macro] PPIC incremental fetch from 2025-12-30
+2026-03-30 14:45:46,676 | INFO | [macro] PPIC fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:46,694 | INFO | [macro] PPIC merge action=updated
+2026-03-30 14:45:46,694 | INFO | [macro] NFP start | source=FRED ticker=PAYEMS
+2026-03-30 14:45:46,697 | INFO | [macro] NFP incremental fetch from 2025-12-30
+2026-03-30 14:45:47,164 | INFO | [macro] NFP fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:47,180 | INFO | [macro] NFP merge action=updated
+2026-03-30 14:45:47,180 | INFO | [macro] LABOUR_PART start | source=FRED ticker=CIVPART
+2026-03-30 14:45:47,183 | INFO | [macro] LABOUR_PART incremental fetch from 2025-12-30
+2026-03-30 14:45:47,421 | INFO | [macro] LABOUR_PART fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:47,443 | INFO | [macro] LABOUR_PART merge action=updated
+2026-03-30 14:45:47,443 | INFO | [macro] UNEMPLOYMENTR start | source=FRED ticker=UNRATE
+2026-03-30 14:45:47,446 | INFO | [macro] UNEMPLOYMENTR incremental fetch from 2025-12-30
+2026-03-30 14:45:47,666 | INFO | [macro] UNEMPLOYMENTR fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:47,684 | INFO | [macro] UNEMPLOYMENTR merge action=updated
+2026-03-30 14:45:47,684 | INFO | [macro] JOLTS start | source=FRED ticker=JTSJOL
+2026-03-30 14:45:47,687 | INFO | [macro] JOLTS incremental fetch from 2025-12-30
+2026-03-30 14:45:48,211 | INFO | [macro] JOLTS fetched 2 rows | 2025-12-01 -> 2026-01-01
+2026-03-30 14:45:48,229 | INFO | [macro] JOLTS merge action=updated
+2026-03-30 14:45:48,229 | INFO | [macro] USM1 start | source=FRED ticker=M1SL
+2026-03-30 14:45:48,231 | INFO | [macro] USM1 incremental fetch from 2025-12-30
+2026-03-30 14:45:48,510 | INFO | [macro] USM1 fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:48,527 | INFO | [macro] USM1 merge action=updated
+2026-03-30 14:45:48,527 | INFO | [macro] USM2 start | source=FRED ticker=M2SL
+2026-03-30 14:45:48,529 | INFO | [macro] USM2 incremental fetch from 2025-12-30
+2026-03-30 14:45:49,458 | INFO | [macro] USM2 fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:49,471 | INFO | [macro] USM2 merge action=updated
+2026-03-30 14:45:49,471 | INFO | [macro] HOUSINGSTARTS start | source=FRED ticker=HOUST
+2026-03-30 14:45:49,475 | INFO | [macro] HOUSINGSTARTS incremental fetch from 2025-12-30
+2026-03-30 14:45:49,738 | INFO | [macro] HOUSINGSTARTS fetched 2 rows | 2025-12-01 -> 2026-01-01
+2026-03-30 14:45:49,747 | INFO | [macro] HOUSINGSTARTS merge action=updated
+2026-03-30 14:45:49,747 | INFO | [macro] BUILDINGPERMS start | source=FRED ticker=PERMIT
+2026-03-30 14:45:49,749 | INFO | [macro] BUILDINGPERMS incremental fetch from 2025-12-30
+2026-03-30 14:45:49,998 | INFO | [macro] BUILDINGPERMS fetched 2 rows | 2025-12-01 -> 2026-01-01
+2026-03-30 14:45:50,013 | INFO | [macro] BUILDINGPERMS merge action=updated
+2026-03-30 14:45:50,013 | INFO | [macro] NEWHOMESALES start | source=FRED ticker=HSN1F
+2026-03-30 14:45:50,014 | INFO | [macro] NEWHOMESALES incremental fetch from 2025-12-30
+2026-03-30 14:45:50,283 | INFO | [macro] NEWHOMESALES fetched 2 rows | 2025-12-01 -> 2026-01-01
+2026-03-30 14:45:50,297 | INFO | [macro] NEWHOMESALES merge action=updated
+2026-03-30 14:45:50,297 | INFO | [macro] PMI start | source=Scrape ticker=PMI_ISM_MANU
+2026-03-30 14:45:50,298 | INFO | [macro] PMI new asset; fetching full history
+2026-03-30 14:45:50,298 | WARNING | [macro] PMI skipped | reason=unsupported source
+2026-03-30 14:45:50,298 | INFO | [macro] CCI start | source=FRED ticker=UMCSENT
+2026-03-30 14:45:50,299 | INFO | [macro] CCI incremental fetch from 2025-12-30
+2026-03-30 14:45:50,605 | INFO | [macro] CCI fetched 3 rows | 2025-12-01 -> 2026-02-01
+2026-03-30 14:45:50,621 | INFO | [macro] CCI merge action=updated
+2026-03-30 14:45:50,681 | INFO | [macro] saved | updated=30 skipped=1 failed=0 rows=17569 cols=34 range=1913-01-01 -> 2026-03-30
+2026-03-30 14:45:50,681 | INFO | [equities] start
+2026-03-30 14:45:50,734 | INFO | [equities] loaded existing parquet C:\Users\jspit\OneDrive\Documents\Financial Analysis\data\equities_data.parquet
+2026-03-30 14:45:50,734 | INFO | [equities] AAPL start | source=yfinance ticker=AAPL
+2026-03-30 14:45:50,739 | INFO | [equities] AAPL incremental fetch from 2026-03-25
+2026-03-30 14:45:50,950 | INFO | [equities] AAPL fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:50,958 | INFO | [equities] AAPL merge action=updated
+2026-03-30 14:45:50,959 | INFO | [equities] MSFT start | source=yfinance ticker=MSFT
+2026-03-30 14:45:50,960 | INFO | [equities] MSFT incremental fetch from 2026-03-25
+2026-03-30 14:45:51,183 | INFO | [equities] MSFT fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:51,195 | INFO | [equities] MSFT merge action=updated
+2026-03-30 14:45:51,196 | INFO | [equities] GOOGL start | source=yfinance ticker=GOOGL
+2026-03-30 14:45:51,197 | INFO | [equities] GOOGL incremental fetch from 2026-03-25
+2026-03-30 14:45:51,400 | INFO | [equities] GOOGL fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:51,413 | INFO | [equities] GOOGL merge action=updated
+2026-03-30 14:45:51,413 | INFO | [equities] AMZN start | source=yfinance ticker=AMZN
+2026-03-30 14:45:51,415 | INFO | [equities] AMZN incremental fetch from 2026-03-25
+2026-03-30 14:45:51,562 | INFO | [equities] AMZN fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:51,568 | INFO | [equities] AMZN merge action=updated
+2026-03-30 14:45:51,569 | INFO | [equities] META start | source=yfinance ticker=META
+2026-03-30 14:45:51,574 | INFO | [equities] META incremental fetch from 2026-03-25
+2026-03-30 14:45:51,723 | INFO | [equities] META fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:51,735 | INFO | [equities] META merge action=updated
+2026-03-30 14:45:51,735 | INFO | [equities] NVDA start | source=yfinance ticker=NVDA
+2026-03-30 14:45:51,742 | INFO | [equities] NVDA incremental fetch from 2026-03-25
+2026-03-30 14:45:51,912 | INFO | [equities] NVDA fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:51,920 | INFO | [equities] NVDA merge action=updated
+2026-03-30 14:45:51,920 | INFO | [equities] TSLA start | source=yfinance ticker=TSLA
+2026-03-30 14:45:51,924 | INFO | [equities] TSLA incremental fetch from 2026-03-25
+2026-03-30 14:45:52,121 | INFO | [equities] TSLA fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:52,139 | INFO | [equities] TSLA merge action=updated
+2026-03-30 14:45:52,139 | INFO | [equities] LMT start | source=yfinance ticker=LMT
+2026-03-30 14:45:52,144 | INFO | [equities] LMT incremental fetch from 2026-03-25
+2026-03-30 14:45:52,469 | INFO | [equities] LMT fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:52,482 | INFO | [equities] LMT merge action=updated
+2026-03-30 14:45:52,482 | INFO | [equities] TSM start | source=yfinance ticker=TSM
+2026-03-30 14:45:52,484 | INFO | [equities] TSM incremental fetch from 2026-03-25
+2026-03-30 14:45:52,667 | INFO | [equities] TSM fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:52,677 | INFO | [equities] TSM merge action=updated
+2026-03-30 14:45:52,677 | INFO | [equities] NFLX start | source=yfinance ticker=NFLX
+2026-03-30 14:45:52,679 | INFO | [equities] NFLX incremental fetch from 2026-03-25
+2026-03-30 14:45:52,859 | INFO | [equities] NFLX fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:52,868 | INFO | [equities] NFLX merge action=updated
+2026-03-30 14:45:52,868 | INFO | [equities] MSTR start | source=yfinance ticker=MSTR
+2026-03-30 14:45:52,871 | INFO | [equities] MSTR incremental fetch from 2026-03-25
+2026-03-30 14:45:53,029 | INFO | [equities] MSTR fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:53,040 | INFO | [equities] MSTR merge action=updated
+2026-03-30 14:45:53,040 | INFO | [equities] JPM start | source=yfinance ticker=JPM
+2026-03-30 14:45:53,043 | INFO | [equities] JPM incremental fetch from 2026-03-25
+2026-03-30 14:45:53,296 | INFO | [equities] JPM fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:53,307 | INFO | [equities] JPM merge action=updated
+2026-03-30 14:45:53,307 | INFO | [equities] COST start | source=yfinance ticker=COST
+2026-03-30 14:45:53,309 | INFO | [equities] COST incremental fetch from 2026-03-25
+2026-03-30 14:45:53,535 | INFO | [equities] COST fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:53,545 | INFO | [equities] COST merge action=updated
+2026-03-30 14:45:53,545 | INFO | [equities] XOM start | source=yfinance ticker=XOM
+2026-03-30 14:45:53,547 | INFO | [equities] XOM incremental fetch from 2026-03-25
+2026-03-30 14:45:53,834 | INFO | [equities] XOM fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:53,846 | INFO | [equities] XOM merge action=updated
+2026-03-30 14:45:53,970 | INFO | [equities] saved | updated=14 skipped=0 failed=0 rows=16168 cols=70 range=1962-01-02 -> 2026-03-30
+2026-03-30 14:45:53,970 | INFO | [forex] start
+2026-03-30 14:45:53,997 | INFO | [forex] loaded existing parquet C:\Users\jspit\OneDrive\Documents\Financial Analysis\data\forex_data.parquet
+2026-03-30 14:45:53,997 | INFO | [forex] DXY start | source=yfinance ticker=DX-Y.NYB
+2026-03-30 14:45:53,999 | INFO | [forex] DXY incremental fetch from 2026-03-25
+2026-03-30 14:45:54,192 | INFO | [forex] DXY fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:54,200 | INFO | [forex] DXY merge action=updated
+2026-03-30 14:45:54,201 | INFO | [forex] EXY start | source=yfinance ticker=^XDE
+2026-03-30 14:45:54,202 | INFO | [forex] EXY incremental fetch from 2026-03-25
+2026-03-30 14:45:54,415 | INFO | [forex] EXY fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:54,428 | INFO | [forex] EXY merge action=updated
+2026-03-30 14:45:54,428 | INFO | [forex] BXY start | source=yfinance ticker=^XDB
+2026-03-30 14:45:54,431 | INFO | [forex] BXY incremental fetch from 2026-03-25
+2026-03-30 14:45:54,582 | INFO | [forex] BXY fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:54,591 | INFO | [forex] BXY merge action=updated
+2026-03-30 14:45:54,592 | INFO | [forex] JXY start | source=yfinance ticker=^XDN
+2026-03-30 14:45:54,595 | INFO | [forex] JXY incremental fetch from 2026-03-25
+2026-03-30 14:45:54,762 | INFO | [forex] JXY fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:54,768 | INFO | [forex] JXY merge action=updated
+2026-03-30 14:45:54,768 | INFO | [forex] AXY start | source=yfinance ticker=^XDA
+2026-03-30 14:45:54,769 | INFO | [forex] AXY incremental fetch from 2026-03-25
+2026-03-30 14:45:54,932 | INFO | [forex] AXY fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:54,940 | INFO | [forex] AXY merge action=updated
+2026-03-30 14:45:54,940 | INFO | [forex] CXY start | source=yfinance ticker=^XDC
+2026-03-30 14:45:54,943 | INFO | [forex] CXY incremental fetch from 2026-03-25
+2026-03-30 14:45:55,130 | INFO | [forex] CXY fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:55,139 | INFO | [forex] CXY merge action=updated
+2026-03-30 14:45:55,194 | INFO | [forex] saved | updated=6 skipped=0 failed=0 rows=14029 cols=30 range=1971-01-04 -> 2026-03-30
+2026-03-30 14:45:55,194 | INFO | [indices] start
+2026-03-30 14:45:55,267 | INFO | [indices] loaded existing parquet C:\Users\jspit\OneDrive\Documents\Financial Analysis\data\indices_data.parquet
+2026-03-30 14:45:55,268 | INFO | [indices] SPY start | source=yfinance ticker=SPY_BAD
+2026-03-30 14:45:55,271 | INFO | [indices] SPY incremental fetch from 2026-03-25
+2026-03-30 14:45:56,263 | WARNING | [indices] SPY skipped | reason=latest daily bar may not be available yet
+2026-03-30 14:45:56,263 | INFO | [indices] SPX start | source=yfinance ticker=^GSPC
+2026-03-30 14:45:56,265 | INFO | [indices] SPX incremental fetch from 2026-03-25
+2026-03-30 14:45:56,463 | INFO | [indices] SPX fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:56,481 | INFO | [indices] SPX merge action=updated
+2026-03-30 14:45:56,481 | INFO | [indices] QQQ start | source=yfinance ticker=QQQ
+2026-03-30 14:45:56,483 | INFO | [indices] QQQ incremental fetch from 2026-03-25
+2026-03-30 14:45:56,686 | INFO | [indices] QQQ fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:56,719 | INFO | [indices] QQQ merge action=updated
+2026-03-30 14:45:56,719 | INFO | [indices] NDX start | source=yfinance ticker=^IXIC
+2026-03-30 14:45:56,728 | INFO | [indices] NDX incremental fetch from 2026-03-25
+2026-03-30 14:45:56,897 | INFO | [indices] NDX fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:56,913 | INFO | [indices] NDX merge action=updated
+2026-03-30 14:45:56,913 | INFO | [indices] DOW start | source=yfinance ticker=^DJI
+2026-03-30 14:45:56,916 | INFO | [indices] DOW incremental fetch from 2026-03-25
+2026-03-30 14:45:57,081 | INFO | [indices] DOW fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:57,104 | INFO | [indices] DOW merge action=updated
+2026-03-30 14:45:57,105 | INFO | [indices] IWM start | source=yfinance ticker=IWM
+2026-03-30 14:45:57,112 | INFO | [indices] IWM incremental fetch from 2026-03-25
+2026-03-30 14:45:57,302 | INFO | [indices] IWM fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:45:57,334 | INFO | [indices] IWM merge action=updated
+2026-03-30 14:45:57,335 | INFO | [indices] RTY start | source=yfinance ticker=^RUT
+2026-03-30 14:45:57,344 | INFO | [indices] RTY incremental fetch from 2026-03-22
+2026-03-30 14:45:57,501 | INFO | [indices] RTY fetched 6 rows | 2026-03-23 -> 2026-03-30
+2026-03-30 14:45:57,545 | INFO | [indices] RTY merge action=updated
+2026-03-30 14:45:57,546 | INFO | [indices] DAX start | source=yfinance ticker=^GDAXI
+2026-03-30 14:45:57,559 | INFO | [indices] DAX incremental fetch from 2026-03-25
+2026-03-30 14:46:05,530 | INFO | [indices] DAX fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:05,549 | INFO | [indices] DAX merge action=updated
+2026-03-30 14:46:05,549 | INFO | [indices] FTSE start | source=yfinance ticker=^FTSE
+2026-03-30 14:46:05,553 | INFO | [indices] FTSE incremental fetch from 2026-03-25
+2026-03-30 14:46:06,159 | INFO | [indices] FTSE fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:06,176 | INFO | [indices] FTSE merge action=updated
+2026-03-30 14:46:06,176 | INFO | [indices] NIKKEI start | source=yfinance ticker=^N225
+2026-03-30 14:46:06,179 | INFO | [indices] NIKKEI incremental fetch from 2026-03-25
+2026-03-30 14:46:06,770 | INFO | [indices] NIKKEI fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:06,785 | INFO | [indices] NIKKEI merge action=updated
+2026-03-30 14:46:06,786 | INFO | [indices] HSI start | source=yfinance ticker=^HSI
+2026-03-30 14:46:06,791 | INFO | [indices] HSI incremental fetch from 2026-03-25
+2026-03-30 14:46:07,174 | INFO | [indices] HSI fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:07,194 | INFO | [indices] HSI merge action=updated
+2026-03-30 14:46:07,194 | INFO | [indices] TSX start | source=yfinance ticker=^GSPTSE
+2026-03-30 14:46:07,198 | INFO | [indices] TSX incremental fetch from 2026-03-25
+2026-03-30 14:46:07,785 | INFO | [indices] TSX fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:07,807 | INFO | [indices] TSX merge action=updated
+2026-03-30 14:46:07,807 | INFO | [indices] ACWI start | source=yfinance ticker=ACWI
+2026-03-30 14:46:07,812 | INFO | [indices] ACWI incremental fetch from 2026-03-25
+2026-03-30 14:46:08,010 | INFO | [indices] ACWI fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:08,019 | INFO | [indices] ACWI merge action=updated
+2026-03-30 14:46:08,019 | INFO | [indices] XLK start | source=yfinance ticker=XLK
+2026-03-30 14:46:08,024 | INFO | [indices] XLK incremental fetch from 2026-03-25
+2026-03-30 14:46:08,209 | INFO | [indices] XLK fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:08,221 | INFO | [indices] XLK merge action=updated
+2026-03-30 14:46:08,221 | INFO | [indices] XLF start | source=yfinance ticker=XLF
+2026-03-30 14:46:08,225 | INFO | [indices] XLF incremental fetch from 2026-03-25
+2026-03-30 14:46:08,430 | INFO | [indices] XLF fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:08,442 | INFO | [indices] XLF merge action=updated
+2026-03-30 14:46:08,443 | INFO | [indices] XLV start | source=yfinance ticker=XLV
+2026-03-30 14:46:08,446 | INFO | [indices] XLV incremental fetch from 2026-03-25
+2026-03-30 14:46:08,612 | INFO | [indices] XLV fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:08,627 | INFO | [indices] XLV merge action=updated
+2026-03-30 14:46:08,627 | INFO | [indices] XLE start | source=yfinance ticker=XLE
+2026-03-30 14:46:08,629 | INFO | [indices] XLE incremental fetch from 2026-03-25
+2026-03-30 14:46:08,813 | INFO | [indices] XLE fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:08,828 | INFO | [indices] XLE merge action=updated
+2026-03-30 14:46:08,828 | INFO | [indices] XLY start | source=yfinance ticker=XLY
+2026-03-30 14:46:08,830 | INFO | [indices] XLY incremental fetch from 2026-03-25
+2026-03-30 14:46:09,083 | INFO | [indices] XLY fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:09,093 | INFO | [indices] XLY merge action=updated
+2026-03-30 14:46:09,093 | INFO | [indices] XLP start | source=yfinance ticker=XLP
+2026-03-30 14:46:09,095 | INFO | [indices] XLP incremental fetch from 2026-03-25
+2026-03-30 14:46:09,343 | INFO | [indices] XLP fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:09,357 | INFO | [indices] XLP merge action=updated
+2026-03-30 14:46:09,358 | INFO | [indices] XLU start | source=yfinance ticker=XLU
+2026-03-30 14:46:09,361 | INFO | [indices] XLU incremental fetch from 2026-03-25
+2026-03-30 14:46:09,578 | INFO | [indices] XLU fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:09,594 | INFO | [indices] XLU merge action=updated
+2026-03-30 14:46:09,594 | INFO | [indices] XLC start | source=yfinance ticker=XLC
+2026-03-30 14:46:09,596 | INFO | [indices] XLC incremental fetch from 2026-03-25
+2026-03-30 14:46:09,823 | INFO | [indices] XLC fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:09,834 | INFO | [indices] XLC merge action=updated
+2026-03-30 14:46:09,834 | INFO | [indices] XLRE start | source=yfinance ticker=XLRE
+2026-03-30 14:46:09,838 | INFO | [indices] XLRE incremental fetch from 2026-03-25
+2026-03-30 14:46:10,075 | INFO | [indices] XLRE fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:10,084 | INFO | [indices] XLRE merge action=updated
+2026-03-30 14:46:10,085 | INFO | [indices] XLB start | source=yfinance ticker=XLB
+2026-03-30 14:46:10,088 | INFO | [indices] XLB incremental fetch from 2026-03-25
+2026-03-30 14:46:10,290 | INFO | [indices] XLB fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:10,302 | INFO | [indices] XLB merge action=updated
+2026-03-30 14:46:10,302 | INFO | [indices] XLI start | source=yfinance ticker=XLI
+2026-03-30 14:46:10,306 | INFO | [indices] XLI incremental fetch from 2026-03-25
+2026-03-30 14:46:10,507 | INFO | [indices] XLI fetched 4 rows | 2026-03-25 -> 2026-03-30
+2026-03-30 14:46:10,518 | INFO | [indices] XLI merge action=updated
+2026-03-30 14:46:10,739 | INFO | [indices] saved | updated=23 skipped=1 failed=0 rows=25190 cols=120 range=1927-12-30 -> 2026-03-30
+2026-03-30 14:46:10,739 | INFO | Run complete | updated=112 skipped=2 failed=0 log=C:\Users\jspit\OneDrive\Documents\Financial Analysis\logs\run_updates_2026-03-30_144531.log

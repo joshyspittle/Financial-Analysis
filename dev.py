@@ -18,23 +18,44 @@ crypto_close = crypto_ohlcv.xs('Close', axis=1, level=1)
 crypto_ohlc_window = load_data(paths.CRYPTO_DATA_PARQUET, '1d', start_date='01-01-2024')
 crypto_close_window = crypto_ohlc_window.xs('Close', axis=1, level=1)
 
+indices_ohlcv_window = load_data(paths.INDICES_DATA_PARQUET, '1d', start_date='01-01-2024')
+snp = indices_ohlcv_window['SPX']
+qqq = indices_ohlcv_window['QQQ']
+iwm = indices_ohlcv_window['IWM']
+
 btc = crypto_ohlc_window['BTC']
 eth = crypto_ohlc_window['ETH']
 xrp = crypto_ohlc_window['XRP']
 
-myportfolio = {
+indices_portfolio = {
+    'SPY': snp,
+    'QQQ': qqq,
+    'IWM': iwm,
+}
+
+indices_weights = {
+    'SPY': 1/3,
+    'QQQ': 1/3,
+    'IWM': 1/3,
+}
+
+crypto_portfolio = {
     'BTC': btc,
     'ETH': eth,
     'XRP': xrp,
 }
 
-weights = {
-    'BTC': 0.333,
-    'ETH': 0.333,
-    'XRP': 0.333,
+crypto_weights = {
+    'BTC': 1/3,
+    'ETH': 1/3,
+    'XRP': 1/3,
 }
 
-portfolio_ohlcv = portfolio.construct_ohlcv_rebalanced(myportfolio, weights)
+crypto_portfolio_ohlcv = portfolio.construct_ohlcv_rebalanced(crypto_portfolio, crypto_weights)
+indices_portfolio_ohlcv = portfolio.construct_ohlcv_rebalanced(indices_portfolio, indices_weights)
 
 if __name__ == '__main__':
-    vis.plot_chart(portfolio_ohlcv)
+    print(snp.tail())
+    vis.plot_chart(snp)
+    #vis.plot_chart(crypto_portfolio_ohlcv)
+    #vis.plot_chart(indices_portfolio_ohlcv)

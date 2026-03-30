@@ -127,8 +127,8 @@ def _prepare_inputs(
     if (weights_series < 0).any():
         raise ValueError('weights must be non-negative')
 
-    if weights_series.sum() <= 0:
-        raise ValueError('weights must sum to a positive value')
+    if weights_series.sum() != 1:
+        raise ValueError('weights must sum to 1')
 
     missing_assets = set(weights_series.index) - set(ohlcv_data.keys())
     if missing_assets:
