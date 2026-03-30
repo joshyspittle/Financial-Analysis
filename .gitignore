@@ -21,3 +21,4 @@ build/
 
 # Logs folder and log files
 .logs/
+logs/
