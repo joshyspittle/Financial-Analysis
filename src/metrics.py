@@ -13,6 +13,8 @@ import pandas as pd
 import src.paths as paths
 import src.utils as utils
 
+from typing import Literal
+
 
 def calculate_cagr(close_series: pd.Series) -> float:
     """Return compound annual growth rate over the supplied window."""
@@ -68,10 +70,34 @@ def calculate_sortino_ratio(
 
 def max_drawdown(
     ohlcv_data: pd.DataFrame,
-    asset_id: str,
     start_date: str | pd.Timestamp | None = None,
     end_date: str | pd.Timestamp | None = None,
-) -> None:
+    return_type: Literal['close-to-close', 'high-to-low'] = 'close-to-close',
+) -> tuple[float, pd.Timestamp, pd.Timestamp]:
     """Placeholder for max drawdown logic."""
 
-    return None
+    ohlc_cols = {'Open', 'High', 'Low', 'Close'}
+    is_ohlcv = ohlc_cols.issubset(ohlcv_data.columns)
+
+    if return_type == 'high-to-low' and not is_ohlcv:
+        raise ValueError("return_type: 'high-to-low' requires full OHLCV data")
+    
+    if return_type == 'high-to-low':
+        peak_series = ohlcv_data['High']
+        trough_series = ohlcv_data['Low']
+    else:
+        if is_ohlcv:
+            peak_series = ohlcv_data['Close']
+        else:
+            peak_series = ohlcv_data
+        trough_series = peak_series
+
+    rolling_max = peak_series.cummax()
+    drawdown = (trough_series - rolling_max) / rolling_max
+
+    max_dd = drawdown.min()
+    trough = drawdown.idxmin()
+    peak = peak_series[:trough].idxmax()
+
+    return max_dd, peak, trough
+
