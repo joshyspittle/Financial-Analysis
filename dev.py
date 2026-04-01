@@ -29,12 +29,12 @@ eth = crypto_ohlc_window['ETH']
 xrp = crypto_ohlc_window['XRP']
 
 max_dd, peak, trough = metrics.max_drawdown(btc, return_type='high-to-low')
-print(max_dd, peak, trough)
+#print(max_dd, peak, trough)
 
 rsi = features.rsi(btc['Close'])
-print(rsi)
+#print(rsi)
 sma = features.sma(btc['Close'])
-print(sma)
+#print(sma)
 
 indices_portfolio = {
     'SPY': snp,
@@ -60,12 +60,32 @@ crypto_weights = {
     'XRP': 1/3,
 }
 
+dad_data = load_data(paths.CRYPTO_DATA_PARQUET, '1d', start_date='08-01-2025')
+dad_eth = dad_data['ETH']
+dad_xrp = dad_data['XRP']
+dad_ltc = dad_data['LTC']
+
+dad_portfolio = {
+    'ETH': dad_eth,
+    'XRP': dad_xrp,
+    'LTC': dad_ltc,
+}
+
+dad_weights = {
+    'ETH': 1/3,
+    'XRP': 1/3,
+    'LTC': 1/3,
+}
+
+dad_portfolio_ohlcv, stats = portfolio.construct_ohlcv_rebalanced(dad_portfolio, dad_weights, contribution_amount=75)
+print(stats.iloc[-1])
+
 crypto_portfolio_ohlcv = portfolio.construct_ohlcv_rebalanced(crypto_portfolio, crypto_weights)
 indices_portfolio_ohlcv = portfolio.construct_ohlcv_rebalanced(indices_portfolio, indices_weights)
 
 if __name__ == '__main__':
     vis.plot_chart(
-    btc,
+    dad_portfolio_ohlcv,
     analyses=[
         {
             'fn': features.sma,
@@ -83,9 +103,9 @@ if __name__ == '__main__':
             'name': 'RSI 14',
             'style': {'color': '#c77dff', 'width': 2, 'price_line': False, 'price_label': False},
              'guide_lines': [
-                {'value': 80, 'color': '#ef5350aa', 'line_style': 'dashed', 'text': '80'},
+                {'value': 70, 'color': '#ef5350aa', 'line_style': 'dashed', 'text': '70'},
                 {'value': 50, 'color': '#9aa4b2aa', 'line_style': 'dotted', 'text': '50'},
-                {'value': 20, 'color': '#26a69aaa', 'line_style': 'dashed', 'text': '20'},
+                {'value': 30, 'color': '#26a69aaa', 'line_style': 'dashed', 'text': '30'},
              ],
         },
         {
@@ -104,6 +124,6 @@ if __name__ == '__main__':
         },
     ],
 )
-    vis.plot_chart(btc, features.macd)
+    #vis.plot_chart(btc, features.macd)
     #vis.plot_chart(crypto_portfolio_ohlcv)
     #vis.plot_chart(indices_portfolio_ohlcv)
